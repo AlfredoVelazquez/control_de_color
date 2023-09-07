@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cambiar Tonalidad de Color</title>
+    <!-- Agregar enlaces a los estilos de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        #colorDiv {
+            width: 100px;
+            height: 100px;
+            background-color: rgb(0, 0, 0); /* Color inicial (negro) */
+            margin: 20px auto;
+        }
+        .container {
+            text-align: center;
+        }
+        footer {
+            background-color: #f8f9fa;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container">
+                <a class="navbar-brand" href="#">Mi Página</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Acerca de</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Contacto</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container mt-5">
+        <h1>Cambiar Tonalidad de Color</h1>
+        <div id="colorDiv"></div>
+        <br>
+        <label for="red">Rojo:</label>
+        <input type="range" id="red" class="form-range" min="0" max="255" value="0">
+        <br>
+        <label for="green">Verde:</label>
+        <input type="range" id="green" class="form-range" min="0" max="255" value="0">
+        <br>
+        <label for="blue">Azul:</label>
+        <input type="range" id="blue" class="form-range" min="0" max="255" value="0">
+        <br>
+        <button class="btn btn-primary" onclick="updateColor()">Cambiar Color</button>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2023 Tu Nombre. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script>
+        const redSlider = document.getElementById("red");
+        const greenSlider = document.getElementById("green");
+        const blueSlider = document.getElementById("blue");
+        const colorDiv = document.getElementById("colorDiv");
+
+        function updateColor() {
+            const redValue = redSlider.value;
+            const greenValue = greenSlider.value;
+            const blueValue = blueSlider.value;
+
+            const rgbColor = `rgb(${redValue},${greenValue},${blueValue})`;
+            colorDiv.style.backgroundColor = rgbColor;
+        }
+    </script>
+
+    <!-- Agregar enlaces a los scripts de Bootstrap al final del documento -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.min.js"></script>
+</body>
+</html>
